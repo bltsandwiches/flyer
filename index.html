@@ -2,17 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <script>
-        const targetUrl = "https://christ-springer-palmer-chassis.trycloudflare.com/flyer/customer_order.php";
-        const incomingQuery = window.location.search;
-        window.location.href = targetUrl + incomingQuery;
-    </script>
+    <title>Customer Order Form</title>
+    <style>
+        html, body, iframe {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting... <a id="fallback" href="#">Click here</a> if not redirected.</p>
+    <iframe id="dynamic-frame" src="about:blank"></iframe>
     <script>
-        document.getElementById('fallback').href = targetUrl + window.location.search;
+        // Base dynamic target updated automatically by your PowerShell script
+        const targetBaseUrl = "https://christ-springer-palmer-chassis.trycloudflare.com/flyer/customer_order.php";
+        
+        // Preserve any incoming query string (e.g. ?referral=rosa)
+        const incomingQuery = window.location.search;
+        
+        // Point the iframe to your dynamic site with parameters intact
+        document.getElementById('dynamic-frame').src = targetBaseUrl + incomingQuery;
     </script>
 </body>
 </html>
