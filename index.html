@@ -31,8 +31,24 @@
     <iframe id="dynamic-frame" src="about:blank"></iframe>
     <script>
         const targetBaseUrl = "https://christ-springer-palmer-chassis.trycloudflare.com/flyer/customer_order.php";
-        const incomingQuery = window.location.search;
-        document.getElementById('dynamic-frame').src = targetBaseUrl + incomingQuery;
+        
+        // Parse incoming query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Check if 'referral' parameter exists and is not empty
+        if (!urlParams.has('referral') || !urlParams.get('referral').trim()) {
+            // OPTION A: Automatically assign a default referral if missing
+            urlParams.set('referral', 'general'); 
+            
+            // OPTION B: If you want to block them instead, uncomment the line below:
+            // document.body.innerHTML = "<h2 style='text-align:center; margin-top:20vh; font-family:sans-serif;'>Error: A valid referral link is required to access this page.</h2>";
+        }
+
+        // Rebuild the query string to pass along to the dynamic site
+        const finalQuery = "?" + urlParams.toString();
+
+        // Point the iframe to your dynamic site with the enforced referral
+        document.getElementById('dynamic-frame').src = targetBaseUrl + finalQuery;
     </script>
 </body>
 </html>
