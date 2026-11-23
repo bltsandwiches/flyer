@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Customer Order Form</title>
     <style>
-        * {
+        *, *::before, *::after {
             box-sizing: border-box;
         }
         html, body {
@@ -30,9 +30,9 @@
 <body>
     <iframe id="dynamic-frame" src="about:blank"></iframe>
     <script>
-        const targetBaseUrl = "https://intake-toner-moreover-legitimate.trycloudflare.com/flyer/customer_order.php";
+        const targetBaseUrl = "https://weddings-scene-risks-eligible.trycloudflare.com/flyer/customer_order.php";
         const urlParams = new URLSearchParams(window.location.search);
-        
+
         if (!urlParams.has('referral') || !urlParams.get('referral').trim()) {
             urlParams.set('referral', 'general');
         }
