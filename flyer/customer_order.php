@@ -30,7 +30,7 @@
 <body>
     <iframe id="dynamic-frame" src="about:blank"></iframe>
     <script>
-        const targetBaseUrl = "https://tire-flexibility-stands-teaches.trycloudflare.com/flyer/customer_order.php";
+        const targetBaseUrl = "https://configured-techno-paths-read.trycloudflare.com/flyer/customer_order.php";
         const urlParams = new URLSearchParams(window.location.search);
 
         if (!urlParams.has('referral') || !urlParams.get('referral').trim()) {
